@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Hamburg Aktuell</title>
+    <link rel="stylesheet" href="css/framework7.min.css">
+    <link rel="stylesheet" href="css/my-app.css">
+  </head>
+  <body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+      <div class="view view-main">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">Hamburg News</div>
+						<div class="right"><button class="button" onclick="window.location.reload()">Reload</button></div>
+          </div>
+        </div>
+		  <div class="pages navbar-through toolbar-through">
+			<!-- Page, data-page contains page name-->
+			<div data-page="index" class="page">
+				<!-- Scrollable page content-->
+				<div class="page-content pull-to-refresh-content">
+					<!-- Pull to Refresh -->
+					<div class="pull-to-refresh-layer">
+					  <div class="preloader"></div>
+					  <div class="pull-to-refresh-arrow"></div>
+					</div>
+					
+				<!-- Div for Result -->
+				<div id="content"></div>
+				
+				<!-- Template7 Template -->
+				<script id="feed" type="text/template">
+					<div class="list-block media-list">
+						<ul>
+						{{#with value}}
+						{{#each items}}
+								<li class="{{author}}">
+									<a href="{{link}}" class="item-link item-content external" target="_blank">
+										<div class="item-inner">
+											<div class="item-title-row">
+											<div class="item-title">{{title}}</div>
+											<div class="item-after">{{datum}}</div>
+										</div>
+										<div class="rss-preview">{{description}}</div>
+									</div>
+									</a>
+								</li>
+						  {{/each}}
+							{{/with}}
+						</ul>
+					</div>
+				  </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/framework7.min.js"></script>	  
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>
